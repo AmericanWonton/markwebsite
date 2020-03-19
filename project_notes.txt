@@ -1,0 +1,10 @@
+Okay, we've learned how to parse files in go and we're going to start making mark a basic ass website!
+First things first, let's get all his photos off of Facebook...cuz they look good. The plan is to plop them into
+extraneous_files, then decide which can go into img when we want to play with them.
+
+Things to mess with: 
+1. Facebook APIS. Might need for videos or messaging: 
+https://developers.facebook.com/docs/plugins/embedded-video-player/api
+https://developers.facebook.com/docs/plugins/embedded-video-player/
+
+So I got a majority of Mark's photos but IDK if he's on Twitter...so it looks like just Facebook...
