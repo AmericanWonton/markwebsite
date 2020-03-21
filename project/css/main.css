@@ -1,0 +1,45 @@
+
+
+/* ------------------------------------------------- */
+/*     Document Design under 600px.... */
+
+
+/* BEGINNING OF HEADER AREA */
+
+.header_div {
+    /* Flexbox styling */
+    display: flex;
+    flex-flow: wrap;
+    /* styling */
+
+    /* debug styling */
+    border: 3px solid gold;
+}
+
+/* THIS BEGINS MOST CONTENTS WITHIN THE BODY */
+.above_fold_div {
+    /* Above the fold styling */
+    height: 100vh;
+    box-sizing: border-box;
+    /* Flex-box styling */
+
+    /* DEBUG STYLING */
+    border: 3px dashed pink;
+}
+
+/* THIS ENDS MOST OF THE CONTENTS IN THE BODY */
+
+/* END OF HEADER AREA */
+
+/* BEGINNING OF FOOTER AREA */
+.footer_div {
+    /* Flexbox styling */
+    display: flex;
+    flex-flow: wrap;
+    /* styling */
+
+    /* debug styling */
+    border: 3px solid red;
+}
+
+/* END OF FOOTER AREA */

@@ -8,3 +8,5 @@ https://developers.facebook.com/docs/plugins/embedded-video-player/api
 https://developers.facebook.com/docs/plugins/embedded-video-player/
 
 So I got a majority of Mark's photos but IDK if he's on Twitter...so it looks like just Facebook...
+
+1. Going to start by making some basic go templates
