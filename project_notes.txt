@@ -9,4 +9,30 @@ https://developers.facebook.com/docs/plugins/embedded-video-player/
 
 So I got a majority of Mark's photos but IDK if he's on Twitter...so it looks like just Facebook...
 
-1. Going to start by making some basic go templates
+1. Made basic Go Templates...probably should make some basic page structure. 
+2. I should mess with some requests and handling requests.
+
+Weird...my gohtml isn't syncing with my css files... is it something wrong with the templates?
+Okay, it's a two part issue: One, I had to fix the stylesheet path after moving my CSS folder around.
+Two, there's a rule for serving those CSS files, (I kind of had to dig for the right answer here):
+https://stackoverflow.com/questions/43601359/how-do-i-serve-css-and-js-in-go
+
+
+/* **** I had to copy and paste the code to get our stuff published on a Google site... **/
+/* ------------- SERVING FILES BEGINNING ---------------------- */
+	/* Handles all the files in the main.go directory, (everything under project) */
+	//http.Handle("/", http.FileServer(http.Dir(".")))
+	http.Handle("/", http.FileServer(http.Dir(".")))
+	/* Defining a port for Google Cloud environment, (defaults to port 8080 for testing) */
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+		log.Printf("Defaulting to port %s ", port)
+	}
+	/* logs a fatal error if no port is identified to serve these files */
+	log.Printf("listenting on port %s", port)
+	if err := http.ListenAndServe(":"+port, nil); err != nil {
+		log.Fatal(err)
+	}
+
+	/* ------------- SERVING FILES ENDING ---------------------- */

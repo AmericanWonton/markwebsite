@@ -17,11 +17,11 @@
 {{end}}
 
 {{define "media-queries"}}
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/styling.css">
-    <link rel="stylesheet" media="(min-width: 600px)" href="css/mq_600.css">
-    <link rel="stylesheet" media="(min-width: 900px)" href="css/mq_900.css">
-    <link rel="stylesheet" media="(min-width: 1500px)" href="css/mq_1500.css">
+    <link rel="stylesheet" href="static/css/main.css">
+    <link rel="stylesheet" href="static/css/styling.css">
+    <link rel="stylesheet" media="(min-width: 600px)" href="static/css/mq_600.css">
+    <link rel="stylesheet" media="(min-width: 900px)" href="static/css/mq_900.css">
+    <link rel="stylesheet" media="(min-width: 1500px)" href="static/css/mq_1500.css">
 {{end}}
 
 {{define "javascript"}}
@@ -31,17 +31,34 @@
 {{/******* END OF HEAD SECTION *****/}}
 
 {{/******** BEGINNING OF HEADER SECTION ********/}}
+{{define "header_div"}}
     <header>
-        <div class= "header_div">
-            This is a header, you ugly-ass.
+        <div class="header_div">
+            <div class="drop-down-link-divs">
+                <div class="nothing_box">
+                    I am the nothing box.
+                </div>
+                <div class="about_box">
+
+                </div>
+                <div class="link_box">
+                    This is the link_box.
+                </div>
+                <div class="contact_me_box">
+
+                </div>
+            </div>
         </div>
     </header>
+{{end}}
 {{/******** END OF HEADER SECTION ********/}}
 
 {{/******* BEGINNING OF FOOTER SECTION ******/}}
+{{define "footer_div"}}
     <footer>
         <div class="footer_div">
             Hey, this is a footer, you cuck.
         </div>
     </footer>
+{{end}}
 {{/******** END OF FOOTER SECTION *******/}}

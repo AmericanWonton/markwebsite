@@ -1,0 +1,97 @@
+
+
+/* ------------------------------------------------- */
+/*     Document Design under 600px.... */
+
+
+/* BEGINNING OF HEADER AREA */
+
+.header_div {
+    /* Flexbox styling */
+    display: flex;
+    flex-flow: wrap;
+    width: 100%;
+    /* styling */
+
+    /* debug styling */
+    background-color: pink;
+    border: 3px solid gold;
+}
+
+.drop-down-link-divs {
+    /* Flexbox styling */
+    display: flex;
+    flex-flow: wrap;
+    /* align-content: flex-end; */
+    width: 100%;
+    /* styling */
+
+    /* debug styling */
+    background-color: gold;
+    border: 2px dashed green;
+}
+
+.nothing_box {
+    width: 45%;
+    /* debug styling */
+    background-color: hotpink;
+    border: 2px solid peru;
+}
+
+.link_box {
+    /* Flexbox styling */
+    width: 20%;
+    /* styling */
+
+    /* debug styling */
+    background-color: tan;
+    border: 2px dashed rgb(120, 6, 131);
+}
+
+.about_box {
+    /* Flexbox styling */
+    width: 15%;
+    /* styling */
+
+    /* debug styling */
+    background-color: black;
+    border: 2px solid green;
+}
+
+.contact_me_box {
+    /* Flexbox styling */
+    width: 15%;
+    /* styling */
+
+    /* debug styling */
+    background-color: grey;
+    border: 2px solid rgb(163, 221, 163);
+}
+
+/* END OF HEADER AREA */
+
+/* THIS BEGINS MOST CONTENTS WITHIN THE BODY */
+.above_fold_div {
+    /* Above the fold styling */
+    height: 100vh;
+    box-sizing: border-box;
+    /* Flex-box styling */
+
+    /* DEBUG STYLING */
+    border: 3px dashed pink;
+}
+
+/* THIS ENDS MOST OF THE CONTENTS IN THE BODY */
+
+/* BEGINNING OF FOOTER AREA */
+.footer_div {
+    /* Flexbox styling */
+    display: flex;
+    flex-flow: wrap;
+    /* styling */
+
+    /* debug styling */
+    border: 3px solid red;
+}
+
+/* END OF FOOTER AREA */
