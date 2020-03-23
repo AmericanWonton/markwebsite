@@ -18,10 +18,31 @@
         {{template "header_div"}}
 
         {{/* Here is our main content */}}
-        <div class="above_fold_div">
-            HEY UHHHH, PIZZA, PASTA, SPAGHETTI, UHHHHHHH
+        <div class="body_div">
+            {{/* Here is our above the fold content */}}
+            <div class="above_fold_div">
+                HEY UHHHH, PIZZA, PASTA, SPAGHETTI, UHHHHHHH
+            </div>
+            {{/* Here is the rest of the stuff under the container */}}
+            <div class="rest_of_content_div">
+                <div class="content_div_txt">
+                    <p>Hey, if you're really cool, this is where you would put some cool text.</p>
+                </div>
+                <div class="content_div_video">
+                    <div id="fb-root">
+                    <h1>My Video Player</h1>
+                    </div>
+                    <script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+                    <div class="fb-video"
+                        data-href="https://www.facebook.com/strictlydj2019/videos/904940399849167/"
+                        data-width="300"
+                        data-height="200"
+                        data-allowfullscreen="true">
+                    </div>
+                </div>
+            </div>
         </div>
-
+        
         {{/* Here is our footer */}}
         {{template "footer_div"}}
     </body>

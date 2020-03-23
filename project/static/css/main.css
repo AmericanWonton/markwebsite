@@ -50,22 +50,89 @@
 
 .about_box {
     /* Flexbox styling */
+    display: flex;
+    flex-flow: wrap;
+    align-content: center;
+    justify-content: center;
     width: 15%;
     /* styling */
 
     /* debug styling */
-    background-color: black;
     border: 2px solid green;
 }
 
 .contact_me_box {
     /* Flexbox styling */
+    display: flex;
+    flex-flow: wrap;
+    align-content: center;
+    justify-content: center;
     width: 15%;
     /* styling */
 
     /* debug styling */
     background-color: grey;
     border: 2px solid rgb(163, 221, 163);
+}
+
+/* Dropdown work */
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.dropbtn {
+    /* background-color: #94a095; */
+    font-family: 'Bebas Neue', cursive, sans-serif;
+    width: 100%;
+    /* color: white; */
+    font-size: 1rem;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    background-color: rgb(54, 50, 50);
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: rgb(168, 90, 168);
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+    background-color: white;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    /* background-color: #94a095; */
+    font-family: 'Bebas Neue', cursive, sans-serif;
+    width: 100%;
+    /* color: white; */
+    font-size: 1rem;
+}
+
+/* Header Links */
+.headerLinks {
+    font-size: 1rem;
+    color: yellow;
 }
 
 /* END OF HEADER AREA */
@@ -81,6 +148,37 @@
     border: 3px dashed pink;
 }
 
+.rest_of_content_div{
+    /* Flexbox styling */
+
+
+    /* stying */
+
+    /* debug styling */
+    border: 1px dashed black;
+}
+
+.content_div_txt {
+    /* Flexbox styling */
+
+    /* styling */
+
+    /* debug styling */
+    border: 1px solid salmon;
+}
+
+.content_div_video {
+    /* Flexbox styling */
+    display: flex;
+    flex-flow: wrap;
+    align-content: center;
+    justify-content: center;
+    /* styling */
+    padding: 1rem;
+    /* debug styling */
+    border: 2px dashed darkblue;
+}
+
 /* THIS ENDS MOST OF THE CONTENTS IN THE BODY */
 
 /* BEGINNING OF FOOTER AREA */
@@ -93,5 +191,89 @@
     /* debug styling */
     border: 3px solid red;
 }
+
+/* This is for Mark's name */
+.namer_div {
+    /* flexbox styling */
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    /* styling */
+    
+    /* debug styling */
+    background-color: indianred;
+}
+
+.namername {
+    /* styling */
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    font-size: 3em;
+}
+
+/* This is for Mark's contact info */
+.contact_slide_div {
+    /* Flexbox styling */
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    /* debug styling */
+    background-color: lawngreen;
+}
+
+.contact_box {
+    /* Flexbox styling */
+    display: flex;
+    flex-wrap: row wrap;
+    align-content: center;
+    justify-content: center;
+    width: 50%;
+    /* debug styling */
+    background-color: lightseagreen;
+}
+
+.image_contact_holder {
+    /* flexbox stylings */
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    width: 45%;
+    /* styling */
+    margin: .5em;
+    padding: .5em;
+    /* debug styling */
+    border: 2px solid black;
+}
+
+.image_contact {
+    /* styling */
+    width: 8vw;
+    height: 8vh;
+}
+
+.text_contact_holder {
+    /* flexbox stylings */
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    width: 45%;
+    /* styling */
+    margin: .5em;
+    padding: .5em;
+    /* debug styling */
+    border: 2px solid black;
+}
+
+.text_contact {
+    /* styling */
+    font-size: .5rem;
+}
+
+/* This is for Mark's contact info */
+
 
 /* END OF FOOTER AREA */

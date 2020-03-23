@@ -11,11 +11,16 @@ So I got a majority of Mark's photos but IDK if he's on Twitter...so it looks li
 
 1. Made basic Go Templates...probably should make some basic page structure. 
 2. I should mess with some requests and handling requests.
+3. Before building the structure of the site, I should mess with some APIs or other features.
+4. Maybe create a database in Mongo to keep track of who created a date for Mark, etc.?
 
 Weird...my gohtml isn't syncing with my css files... is it something wrong with the templates?
 Okay, it's a two part issue: One, I had to fix the stylesheet path after moving my CSS folder around.
 Two, there's a rule for serving those CSS files, (I kind of had to dig for the right answer here):
 https://stackoverflow.com/questions/43601359/how-do-i-serve-css-and-js-in-go
+
+To close all code sections in VS Code, press CTRL + K + 0
+or Command + k + 0 in Mac
 
 
 /* **** I had to copy and paste the code to get our stuff published on a Google site... **/
