@@ -179,6 +179,166 @@
     border: 2px dashed darkblue;
 }
 
+/* Submitting form data */
+.divform {
+    /* Flexbox styling */
+    display: flex;
+    flex-flow: wrap;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    /* styling */
+    padding: 1rem;
+    /* debug styling */
+    border: 2px dashed rgb(211, 207, 153);
+}
+
+#my-form {
+    /* flexbox styling */
+
+    /* styling */
+}
+
+.fieldSection {
+    /*flexbox styling */
+    display: flex;
+    flex-flow: wrap;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    /* styling */
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+
+.labelDiv {
+    /* flexbox styling */
+    display: flex;
+    flex-flow: wrap;
+    justify-content: flex-end;
+    align-content: center;
+    width: 45%;
+}
+
+.labelPText {
+    /* styling */
+    font-size: 1rem;
+    padding-right: 1rem;
+    font-family: 'Odibee Sans', sans-serif;
+    color: rgb(207, 157, 157);
+}
+
+.inputDiv {
+    /* flexbox styling */
+    display: flex;
+    flex-flow: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    width: 45%;
+}
+
+#inputTextMobileFName{
+    /* font styling */
+    font-size: 1rem;
+    font-family: 'Nunito', sans-serif;
+}
+
+#inputTextMobileLName{
+    /* font styling */
+    font-size: 1rem;
+    font-family: 'Nunito', sans-serif;
+}
+
+#inputTextMobileEmail{
+    /* font styling */
+    font-size: 1rem;
+    font-family: 'Nunito', sans-serif;
+}
+
+#inputTextMobileSubject{
+    /* font styling */
+    font-size: 1rem;
+    font-family: 'Nunito', sans-serif;
+}
+
+#inputTextMobileMessage{
+    /* font styling */
+    font-size: 1rem;
+    font-family: 'Nunito', sans-serif;
+}
+
+#inputTextMobileWebsite{
+    /* font styling */
+    font-size: 1rem;
+    font-family: 'Nunito', sans-serif;
+}
+
+#inputTitlePhoneNum1 {
+    width: 10%;
+    height: auto;
+    margin-right: .5rem;
+    font-family: 'Nunito', sans-serif;
+}
+
+#inputTitlePhoneNum2 {
+    width: 15%;
+    height: auto;
+    margin-right: .5rem;
+    font-family: 'Nunito', sans-serif;
+}
+
+#inputTitlePhoneNum3 {
+    width: 15%;
+    height: auto;
+    margin-right: .5rem;
+    font-family: 'Nunito', sans-serif;
+}
+
+#inputTitlePhoneNum4 {
+    width: 20%;
+    height: auto;
+    font-family: 'Nunito', sans-serif;
+}
+
+#my-form-button {
+    
+}
+
+.inputTextMobileMessage {
+    width: 45%;
+    /* height added for message stuff */
+    height: 10vh;
+    /* text-align used for message stuff */
+    text-align: left;
+    vertical-align: text-top;
+    border: 2px solid orange;
+    display: inline-block;
+}
+
+.inputTitleDivMobile{
+    /* flexbox content */
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-end;
+    width: 45%;
+    border: 2px solid teal;
+}
+
+.inputTitlePMobile {
+    font-size: 1.5rem;
+    margin: 2px;
+}
+
+.phoneNumDiv {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    width: 45%;
+    /* Debug colors */
+    background-color: orchid;
+}
 /* THIS ENDS MOST OF THE CONTENTS IN THE BODY */
 
 /* BEGINNING OF FOOTER AREA */

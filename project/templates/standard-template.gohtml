@@ -25,7 +25,9 @@
 {{end}}
 
 {{define "javascript"}}
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/email.js"></script>
 {{end}}
 
 {{/******* END OF HEAD SECTION *****/}}
@@ -63,7 +65,165 @@
 
 {{/******** BEGINNING OF BODY SECTION *********/}}
 
+{{/* CONTACT FORM */}}
+{{define "contact_mark_form"}}
+    <div class="divform">
+        <form id="my-form"
+        action="https://formspree.io/meqgqoal"
+        method="POST"
+        onload=""
+        >
+            <!--Firstname-->
+            <div class="fieldSection">
+                <div class="labelDiv">
+                    <p class="labelPText">
+                        FIRSTNAME:
+                    </p>
+                </div>
+                <div class="inputDiv">
+                    <input type="text" name="firstname" id="inputTextMobileFName"/>
+                </div>
+            </div>
+            <!--Lastname-->
+            <div class="fieldSection">
+                <div class="labelDiv">
+                    <p class="labelPText">
+                        LASTNAME:
+                    </p>
+                </div>
+                <div class="inputDiv">
+                    <input type="text" name="lastname" id="inputTextMobileLName"/>
+                </div>
+            </div>
+            <!--Email-->
+            <div class="fieldSection">
+                <div class="labelDiv">
+                    <p class="labelPText">
+                        EMAIL:
+                    </p>
+                </div>
+                <div class="inputDiv">
+                    <input type="text" name="email" id="inputTextMobileEmail"/>
+                </div>
+            </div>
+            <!--Subject-->
+            <div class="fieldSection">
+                <div class="labelDiv">
+                    <p class="labelPText">
+                        SUBJECT:
+                    </p>
+                </div>
+                <div class="inputDiv">
+                    <input type="text" name="Subject" id="inputTextMobileSubject" maxlength="60"/>
+                </div>
+            </div>
+            <!--Message-->
+            <div class="fieldSection">
+                <div class="labelDiv">
+                    <p class="labelPText">
+                        MESSAGE:
+                    </p>
+                </div>
+                <div class="inputDiv">
+                    <textarea name="message" form="my-form" id="inputTextMobileMessage"></textarea>
+                </div>
+            </div>
+            <!--Website-->
+            <div class="fieldSection">
+                <div class="labelDiv">
+                    <p class="labelPText">
+                        WEBSITE:
+                    </p>
+                </div>
+                <div class="inputDiv">
+                    <input type="text" name="website" id="inputTextMobileWebsite"/>
+                </div>
+            </div>
+            <!--Phone Number-->
+            <div class="fieldSection">
+                <div class="labelDiv">
+                    <p class="labelPText">
+                        PHONE-NUMBER:
+                    </p>
+                </div>
+                <div class="inputDiv">
+                    <input type="text" name="country_code" id="inputTitlePhoneNum1" maxlength=1/>
+                    <input type="text" name="area_code" id="inputTitlePhoneNum2" maxlength=3/>
+                    <input type="text" name="phonenum_1" id="inputTitlePhoneNum3" maxlength=3/>
+                    <input type="text" name="phonenum_2" id="inputTitlePhoneNum4" maxlength=4/>
+                </div>
+            </div>
+            <!--Submit Button-->
+            <div class="fieldSection">
+                <button id="my-form-button">Submit</button>
+            </div>
+        </form>
+    </div>
+{{end}}
 
+{{/* CONTACT FORM HELPER AJAX FUNCTION */}}
+{{define "helper_email_ajax"}}
+    <script>
+        window.addEventListener("DOMContentLoaded", function() {
+
+            // get the form elements defined in your form HTML above
+            
+            var form = document.getElementById("my-form");
+            var button = document.getElementById("my-form-button");
+            var status = document.getElementById("my-form-status");
+
+            // Success and Error functions for after the form is submitted
+            
+            function success() {
+                form.reset();
+                //button.style = "display: none ";
+                //status.innerHTML = "Thanks!";
+                alert("Thanks for reaching out! You can hear from me soon!");
+            }
+
+            function error() {
+                form.reset();
+            }
+
+            // handle the form submission event
+
+            form.addEventListener("submit", function(ev) {
+                //If 0, all the fields are okay, send the email
+                /* Come back to this later! 
+                if (isEmailValid() === 0){
+                    ev.preventDefault();
+                    var data = new FormData(form);
+                    ajax(form.method, form.action, data, success, error);
+                } else {
+                    //If a value is returned that is NOT 0, there's a problem, clear the field and
+                    //print the error. 
+                    error();
+                }
+                */
+                ev.preventDefault();
+                var data = new FormData(form);
+                ajax(form.method, form.action, data, success, error);
+            });
+        });
+        
+        // helper function for sending an AJAX request
+
+        function ajax(method, url, data, success, error) {
+            var xhr = new XMLHttpRequest();
+            xhr.open(method, url);
+            xhr.setRequestHeader("Accept", "application/json");
+            xhr.onreadystatechange = function() {
+            if (xhr.readyState !== XMLHttpRequest.DONE) return;
+            if (xhr.status === 200) {
+                success(xhr.response, xhr.responseType);
+            } else {
+                error(xhr.status, xhr.response, xhr.responseType);
+            }
+            };
+            xhr.send(data);
+        }
+    </script>
+{{end}}
 {{/******** END OF BODY SECTION ********/}}
 
 {{/******* BEGINNING OF FOOTER SECTION ******/}}
