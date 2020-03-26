@@ -140,7 +140,8 @@
 /* THIS BEGINS MOST CONTENTS WITHIN THE BODY */
 .above_fold_div {
     /* Above the fold styling */
-    height: 100vh;
+    /* height: 100vh; */
+    height: auto;
     box-sizing: border-box;
     /* Flex-box styling */
 

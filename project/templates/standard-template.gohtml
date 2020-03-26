@@ -281,3 +281,57 @@
     </footer>
 {{end}}
 {{/******** END OF FOOTER SECTION *******/}}
+
+
+{{/* TEST TEMPLATE BEGINNING */}}
+{{define "test_form"}}
+    <br><br>
+    <p>Test Form</p>
+    <br>
+    <div class="divform">
+        <form id="simple_form"
+        method="GET"
+        >
+            <!--Firstname-->
+            <div class="fieldSection">
+                <div class="labelDiv">
+                    <p class="labelPText">
+                        FIRSTNAME:
+                    </p>
+                </div>
+                <div class="inputDiv">
+                    <input type="text" name="firstname" id="inputTextMobileFName"/>
+                </div>
+            </div>
+            <!--Lastname-->
+            <div class="fieldSection">
+                <div class="labelDiv">
+                    <p class="labelPText">
+                        LASTNAME:
+                    </p>
+                </div>
+                <div class="inputDiv">
+                    <input type="text" name="lastname" id="inputTextMobileLName"/>
+                </div>
+            </div>
+            <!--Email-->
+            <div class="fieldSection">
+                <div class="labelDiv">
+                    <p class="labelPText">
+                        EMAIL:
+                    </p>
+                </div>
+                <div class="inputDiv">
+                    <input type="text" name="email" id="inputTextMobileEmail"/>
+                </div>
+            </div>
+            <!--Submit Button-->
+            <div class="fieldSection">
+                <button id="my-form-button">Submit</button>
+            </div>
+        </form>
+    </div>
+{{end}}
+
+
+{{/* TEST TEMPLATE ENDING */}}
