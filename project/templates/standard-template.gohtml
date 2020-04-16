@@ -82,6 +82,7 @@
                 </div>
                 <div class="inputDiv">
                     <input type="text" name="firstname" id="inputTextMobileFName"/>
+                    <p class="form-field-err" id="fname-err"></p>
                 </div>
             </div>
             <!--Lastname-->
@@ -93,6 +94,7 @@
                 </div>
                 <div class="inputDiv">
                     <input type="text" name="lastname" id="inputTextMobileLName"/>
+                    <p class="form-field-err" id="lname-err"></p>
                 </div>
             </div>
             <!--Email-->
@@ -104,6 +106,7 @@
                 </div>
                 <div class="inputDiv">
                     <input type="text" name="email" id="inputTextMobileEmail"/>
+                    <p class="form-field-err" id="email-err"></p>
                 </div>
             </div>
             <!--Subject-->
@@ -115,6 +118,7 @@
                 </div>
                 <div class="inputDiv">
                     <input type="text" name="Subject" id="inputTextMobileSubject" maxlength="60"/>
+                    <p class="form-field-err" id="subject-err"></p>
                 </div>
             </div>
             <!--Message-->
@@ -126,6 +130,7 @@
                 </div>
                 <div class="inputDiv">
                     <textarea name="message" form="my-form" id="inputTextMobileMessage"></textarea>
+                    <p class="form-field-err" id="message-err"></p>
                 </div>
             </div>
             <!--Website-->
@@ -137,6 +142,7 @@
                 </div>
                 <div class="inputDiv">
                     <input type="text" name="website" id="inputTextMobileWebsite"/>
+                    <p class="form-field-err" id="website-err"></p>
                 </div>
             </div>
             <!--Phone Number-->
@@ -151,6 +157,7 @@
                     <input type="text" name="area_code" id="inputTitlePhoneNum2" maxlength=3/>
                     <input type="text" name="phonenum_1" id="inputTitlePhoneNum3" maxlength=3/>
                     <input type="text" name="phonenum_2" id="inputTitlePhoneNum4" maxlength=4/>
+                    <p class="form-field-err" id="phone-err"></p>
                 </div>
             </div>
             <!--Submit Button-->
@@ -161,6 +168,350 @@
     </div>
 {{end}}
 
+{{define "okay_email_checker"}}
+    <script>
+        //Keep track of when User is allowed to submit.
+        var goodFields = [false, false, false, false, false, false, false, false, false] //Variable to keep track of what's good to go
+        //Turn off submit button when page loads
+        window.addEventListener("DOMContentLoaded", function(){
+            document.querySelector('#my-form-button').disabled = true;
+        });
+        //All fields must be clicked on to submit form. Keep track of all of them being clicked!
+        function canSubmit() {
+            var goodSubmission = true;
+            for (x = 0; x < goodFields.length; x++) {
+                if (goodFields[x] == false) {
+                    goodSubmission = false;
+                    break;
+                }
+            }
+            return goodSubmission;
+        }
+        //Document variables for the form
+        var formUser = document.querySelector('#test_form');
+        var email = document.querySelector('#inputTextMobileEmail');
+        var fName = document.querySelector('#inputTextMobileFName');
+        var lName = document.querySelector('#inputTextMobileLName');
+        var subject = document.querySelector('#inputTextMobileSubject');
+        var message = document.querySelector('#inputTextMobileMessage');
+        var website = document.querySelector('#inputTextMobileWebsite');
+        var phonNums = [document.querySelector('#inputTitlePhoneNum1'), document.querySelector('#inputTitlePhoneNum2'),
+                        document.querySelector('#inputTitlePhoneNum3'), document.querySelector('#inputTitlePhoneNum4')]
+        //Error variables that will be displayed for the form.
+        var fNameErr = document.querySelector('#fname-err');
+        var lNameErr = document.querySelector('#lname-err');
+        var emailErr = document.querySelector('#email-err');
+        var subjectErr = document.querySelector('#subject-err');
+        var messageErr = document.querySelector('#message-err');
+        var websiteErr = document.querySelector('#website-err');
+        var phoneNumsErr = document.querySelector('#phone-err');
+        //This is for the firstname field
+        fName.addEventListener('input', function(){
+            console.log(fName.value);
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/okayFormNames', true);
+            xhr.addEventListener('readystatechange', function(){
+                if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
+                    var item = xhr.responseText;
+                    console.log(item);
+                    if (item.includes(" ") == true){
+                        fNameErr.textContent = 'No spaces for first names, please!';
+                        goodFields[0] = false;
+                        document.querySelector('#my-form-button').disabled = true;
+                    } else if (item.length == 0){
+                        console.log(item)
+                        fNameErr.textContent = 'Please give us a first name!';
+                        goodFields[0] = false;
+                        document.querySelector('#my-form-button').disabled = true;
+                    } else {
+                        fNameErr.textContent = '';
+                        goodFields[0] = true;
+                        if (canSubmit() == true) {
+                            document.querySelector('#my-form-button').disabled = false;
+                        }
+                    }
+                }
+            });
+            xhr.send(fName.value);
+        });
+        //This is for the lastname field 
+        lName.addEventListener('input', function(){
+            console.log(lName.value);
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/okayFormNames', true);
+            xhr.addEventListener('readystatechange', function(){
+                if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
+                    var item = xhr.responseText;
+                    console.log(item);
+                    if (item.includes(" ") == true){
+                        lNameErr.textContent = 'No spaces for last names, please!';
+                        goodFields[1] = false;
+                        document.querySelector('#my-form-button').disabled = true;
+                    } else if (item.length == 0){
+                        console.log(item)
+                        lNameErr.textContent = 'Please give us a last name!';
+                        goodFields[1] = false;
+                        document.querySelector('#my-form-button').disabled = true;
+                    } else {
+                        lNameErr.textContent = '';
+                        goodFields[1] = true;
+                        if (canSubmit() == true) {
+                            document.querySelector('#my-form-button').disabled = false;
+                        }
+                    }
+                }
+            });
+            xhr.send(lName.value);
+        });
+        //This is for the email field
+        email.addEventListener('focusout', function(){
+            console.log(email.value);
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/okayFormEmail', true);
+            xhr.addEventListener('readystatechange', function(){
+                if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
+                    var item = xhr.responseText;
+                    console.log(item);
+                    switch (item) {
+                        case "Please enter a valid email address":
+                            //Invalid fields entered for email address
+                            emailErr.textContent = item;
+                            goodFields[2] = false;
+                            document.querySelector('#my-form-button').disabled = true;
+                            break;
+                        case (item.length <= 0):
+                            //Length of email is 0 and somehow missed our go code..
+                            emailErr.textContent = "Please enter a valid email address";
+                            goodFields[2] = false;
+                            document.querySelector('#my-form-button').disabled = true;
+                            break;
+                        default:
+                            //Good email field
+                            emailErr.textContent = '';
+                            goodFields[2] = true;
+                            if (canSubmit() == true) {
+                                document.querySelector('#my-form-button').disabled = false;
+                            }
+                            break;
+                    }
+                }
+            });
+            xhr.send(email.value);
+        });
+        //This is for the subject field
+        subject.addEventListener('focusout', function(){
+            console.log(subject.value);
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/okayFormBigMessage', true);
+            xhr.addEventListener('readystatechange', function(){
+                if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
+                    var item = xhr.responseText;
+                    console.log(item);
+                    switch (item) {
+                        case "Please leave me a message and subject!":
+                            //Invalid fields entered for email address
+                            subjectErr.textContent = item;
+                            goodFields[3] = false;
+                            document.querySelector('#my-form-button').disabled = true;
+                            break;
+                        case (item.length <= 0):
+                            //Length of subject is 0 and somehow missed our go code..
+                            subjectErr.textContent = "Please leave me a message and subject!";
+                            goodFields[3] = false;
+                            document.querySelector('#my-form-button').disabled = true;
+                            break;
+                        default:
+                            //Good email field
+                            subjectErr.textContent = '';
+                            goodFields[3] = true;
+                            if (canSubmit() == true) {
+                                document.querySelector('#my-form-button').disabled = false;
+                            }
+                            break;
+                    }
+                }
+            });
+            xhr.send(subject.value);
+        });
+        //This is for the Message Field
+        message.addEventListener('focusout', function(){
+            console.log(message.value);
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/okayFormBigMessage', true);
+            xhr.addEventListener('readystatechange', function(){
+                if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
+                    var item = xhr.responseText;
+                    console.log(item);
+                    switch (item) {
+                        case "Please leave me a message and subject!":
+                            //Invalid fields entered for message address
+                            message.textContent = item;
+                            goodFields[4] = false;
+                            document.querySelector('#my-form-button').disabled = true;
+                            break;
+                        case (item.length <= 0):
+                            //Length of subject is 0 and somehow missed our go code..
+                            messageErr.textContent = "Please leave me a message and subject!";
+                            goodFields[4] = false;
+                            document.querySelector('#my-form-button').disabled = true;
+                            break;
+                        default:
+                            //Good email field
+                            messageErr.textContent = '';
+                            goodFields[4] = true;
+                            if (canSubmit() == true) {
+                                document.querySelector('#my-form-button').disabled = false;
+                            }
+                            break;
+                    }
+                }
+            });
+            xhr.send(message.value);
+        });
+        //This is for the Phone Numbers
+        //Num 0
+        phonNums[0].addEventListener('focusout', function(){
+            console.log(phonNums[0].value);
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/okayFormNumbers', true);
+            xhr.addEventListener('readystatechange', function(){
+                if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
+                    var item = xhr.responseText;
+                    console.log(item);
+                    switch (item) {
+                        case "Please enter a phone number so I can get back to you!":
+                            //Invalid fields entered for message address
+                            phoneNumsErr.textContent = item;
+                            goodFields[5] = false;
+                            document.querySelector('#my-form-button').disabled = true;
+                            break;
+                        case (item.length <= 0):
+                            //Length of subject is 0 and somehow missed our go code..
+                            phoneNumsErr.textContent = "Please enter a phone number so I can get back to you!";
+                            goodFields[5] = false;
+                            document.querySelector('#my-form-button').disabled = true;
+                            break;
+                        default:
+                            //Good email field
+                            phoneNumsErr.textContent = '';
+                            goodFields[5] = true;
+                            if (canSubmit() == true) {
+                                document.querySelector('#my-form-button').disabled = false;
+                            }
+                            break;
+                    }
+                }
+            });
+            xhr.send(phonNums[0].value);
+        });
+        //Num 1
+        phonNums[1].addEventListener('focusout', function(){
+            console.log(phonNums[1].value);
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/okayFormNumbers', true);
+            xhr.addEventListener('readystatechange', function(){
+                if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
+                    var item = xhr.responseText;
+                    console.log(item);
+                    switch (item) {
+                        case "Please enter a phone number so I can get back to you!":
+                            //Invalid fields entered for message address
+                            phoneNumsErr.textContent = item;
+                            goodFields[6] = false;
+                            document.querySelector('#my-form-button').disabled = true;
+                            break;
+                        case (item.length <= 0):
+                            //Length of subject is 0 and somehow missed our go code..
+                            phoneNumsErr.textContent = "Please enter a phone number so I can get back to you!";
+                            goodFields[6] = false;
+                            document.querySelector('#my-form-button').disabled = true;
+                            break;
+                        default:
+                            //Good email field
+                            phoneNumsErr.textContent = '';
+                            goodFields[6] = true;
+                            if (canSubmit() == true) {
+                                document.querySelector('#my-form-button').disabled = false;
+                            }
+                            break;
+                    }
+                }
+            });
+            xhr.send(phonNums[1].value);
+        });
+        //Num 2
+        phonNums[2].addEventListener('focusout', function(){
+            console.log(phonNums[0].value);
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/okayFormNumbers', true);
+            xhr.addEventListener('readystatechange', function(){
+                if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
+                    var item = xhr.responseText;
+                    console.log(item);
+                    switch (item) {
+                        case "Please enter a phone number so I can get back to you!":
+                            //Invalid fields entered for message address
+                            phoneNumsErr.textContent = item;
+                            goodFields[7] = false;
+                            document.querySelector('#my-form-button').disabled = true;
+                            break;
+                        case (item.length <= 0):
+                            //Length of subject is 0 and somehow missed our go code..
+                            phoneNumsErr.textContent = "Please enter a phone number so I can get back to you!";
+                            goodFields[7] = false;
+                            document.querySelector('#my-form-button').disabled = true;
+                            break;
+                        default:
+                            //Good email field
+                            phoneNumsErr.textContent = '';
+                            goodFields[7] = true;
+                            if (canSubmit() == true) {
+                                document.querySelector('#my-form-button').disabled = false;
+                            }
+                            break;
+                    }
+                }
+            });
+            xhr.send(phonNums[2].value);
+        });
+        //Num 3
+        phonNums[3].addEventListener('focusout', function(){
+            console.log(phonNums[0].value);
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/okayFormNumbers', true);
+            xhr.addEventListener('readystatechange', function(){
+                if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
+                    var item = xhr.responseText;
+                    console.log(item);
+                    switch (item) {
+                        case "Please enter a phone number so I can get back to you!":
+                            //Invalid fields entered for message address
+                            phoneNumsErr.textContent = item;
+                            goodFields[8] = false;
+                            document.querySelector('#my-form-button').disabled = true;
+                            break;
+                        case (item.length <= 0):
+                            //Length of subject is 0 and somehow missed our go code..
+                            phoneNumsErr.textContent = "Please enter a phone number so I can get back to you!";
+                            goodFields[8] = false;
+                            document.querySelector('#my-form-button').disabled = true;
+                            break;
+                        default:
+                            //Good email field
+                            phoneNumsErr.textContent = '';
+                            goodFields[8] = true;
+                            if (canSubmit() == true) {
+                                document.querySelector('#my-form-button').disabled = false;
+                            }
+                            break;
+                    }
+                }
+            });
+            xhr.send(phonNums[3].value);
+        });
+    </script>
+{{end}}
+
 {{/* CONTACT FORM HELPER AJAX FUNCTION */}}
 {{define "helper_email_ajax"}}
     <script>
@@ -168,9 +519,9 @@
 
             // get the form elements defined in your form HTML above
             
-            var form = document.getElementById("my-form");
+            var form = document.getElementById("contact_mark_form");
             var button = document.getElementById("my-form-button");
-            var status = document.getElementById("my-form-status");
+            //var status = document.getElementById("my-form-status");
 
             // Success and Error functions for after the form is submitted
             
@@ -182,24 +533,13 @@
             }
 
             function error() {
+                alert("Error sending email form");
                 form.reset();
             }
 
             // handle the form submission event
 
             form.addEventListener("submit", function(ev) {
-                //If 0, all the fields are okay, send the email
-                /* Come back to this later! 
-                if (isEmailValid() === 0){
-                    ev.preventDefault();
-                    var data = new FormData(form);
-                    ajax(form.method, form.action, data, success, error);
-                } else {
-                    //If a value is returned that is NOT 0, there's a problem, clear the field and
-                    //print the error. 
-                    error();
-                }
-                */
                 ev.preventDefault();
                 var data = new FormData(form);
                 ajax(form.method, form.action, data, success, error);
@@ -284,13 +624,16 @@
 
 
 {{/* TEST TEMPLATE BEGINNING */}}
+{{/* This is for the test form */}}
 {{define "test_form"}}
     <br><br>
     <p>Test Form</p>
     <br>
     <div class="divform">
         <form id="simple_form"
-        method="GET"
+        action="https://formspree.io/meqgqoal"
+        method="POST"
+        onload=""
         >
             <!--Firstname-->
             <div class="fieldSection">
@@ -301,6 +644,7 @@
                 </div>
                 <div class="inputDiv">
                     <input type="text" name="firstname" id="inputTextMobileFName"/>
+                    <p class="form-field-err" id="fname-err"></p>
                 </div>
             </div>
             <!--Lastname-->
@@ -312,6 +656,7 @@
                 </div>
                 <div class="inputDiv">
                     <input type="text" name="lastname" id="inputTextMobileLName"/>
+                    <p class="form-field-err" id="lname-err"></p>
                 </div>
             </div>
             <!--Email-->
@@ -323,15 +668,14 @@
                 </div>
                 <div class="inputDiv">
                     <input type="text" name="email" id="inputTextMobileEmail"/>
+                    <p class="form-field-err" id="email-err"></p>
                 </div>
             </div>
             <!--Submit Button-->
             <div class="fieldSection">
-                <button id="my-form-button">Submit</button>
+                <button id="my-form-button" onclick="">Submit</button>
             </div>
         </form>
     </div>
 {{end}}
-
-
 {{/* TEST TEMPLATE ENDING */}}

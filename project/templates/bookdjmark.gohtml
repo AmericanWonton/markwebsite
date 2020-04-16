@@ -15,6 +15,7 @@
         {{template "javascript"}}
     </head>
     <body>
+       
        {{/* Here is our header */}}
        {{template "header_div"}}
 
@@ -24,14 +25,20 @@
             <div class="above_fold_div">
                 {{/* Contact mark form */}}
 
-                {{template "test_form"}}
+                {{.}}
 
-                {{/* Helper Email Ajax script */}}
-                {{template "helper_email_ajax"}}
+                {{template "contact_mark_form"}}
+
             </div>
        </div>
 
+       {{/* here is our field checker ajax for the above form */}}
+       {{template "okay_email_checker"}}
+       {{/* Here is our ajax to compile the form into an email when submit button is clicked */}}
+       {{template "helper_email_ajax"}}
+
        {{/* Here is our footer */}}
        {{template "footer_div"}}
+
     </body>
 </html>
