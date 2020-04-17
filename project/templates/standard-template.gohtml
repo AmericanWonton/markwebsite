@@ -195,7 +195,7 @@
         var subject = document.querySelector('#inputTextMobileSubject');
         var message = document.querySelector('#inputTextMobileMessage');
         var website = document.querySelector('#inputTextMobileWebsite');
-        var phonNums = [document.querySelector('#inputTitlePhoneNum1'), document.querySelector('#inputTitlePhoneNum2'),
+        var phoneNums = [document.querySelector('#inputTitlePhoneNum1'), document.querySelector('#inputTitlePhoneNum2'),
                         document.querySelector('#inputTitlePhoneNum3'), document.querySelector('#inputTitlePhoneNum4')]
         //Error variables that will be displayed for the form.
         var fNameErr = document.querySelector('#fname-err');
@@ -370,144 +370,139 @@
         });
         //This is for the Phone Numbers
         //Num 0
-        phonNums[0].addEventListener('focusout', function(){
-            console.log(phonNums[0].value);
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', '/okayFormNumbers', true);
-            xhr.addEventListener('readystatechange', function(){
-                if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
-                    var item = xhr.responseText;
-                    console.log(item);
-                    switch (item) {
-                        case "Please enter a phone number so I can get back to you!":
-                            //Invalid fields entered for message address
-                            phoneNumsErr.textContent = item;
-                            goodFields[5] = false;
-                            document.querySelector('#my-form-button').disabled = true;
-                            break;
-                        case (item.length <= 0):
-                            //Length of subject is 0 and somehow missed our go code..
-                            phoneNumsErr.textContent = "Please enter a phone number so I can get back to you!";
-                            goodFields[5] = false;
-                            document.querySelector('#my-form-button').disabled = true;
-                            break;
-                        default:
-                            //Good email field
-                            phoneNumsErr.textContent = '';
-                            goodFields[5] = true;
-                            if (canSubmit() == true) {
-                                document.querySelector('#my-form-button').disabled = false;
-                            }
-                            break;
-                    }
-                }
-            });
-            xhr.send(phonNums[0].value);
+        phoneNums[0].addEventListener('focusout', function(){
+            console.log(phoneNums[0].value);
+            var phoneCharacters = phoneNums[0].value.split('');
+            console.log("Length of array is this: " + phoneCharacters.length);
+            for (i = 0; i < phoneCharacters.length; i++) {
+                
+            }
+            /*
+            switch (phoneNums[0].value) {
+                case "0":
+                    
+                    break;
+                case "1":
+                    break;
+                case "2":
+                    break;
+                case "3":
+                    break;
+                case "4":
+                    break;
+                case "5":
+                    break;
+                case "6":
+                    break;
+                case "7":
+                    break;
+                case "8":
+                    break;
+                case "9":
+                    break;
+                default:
+                    //This is where we catch our unknown typed in values!
+                    console.log("Invalid phone number input: " + phoneNums[0].value);
+                    phoneNums[0].value = "";
+                    break;
+            }
+            */
         });
         //Num 1
-        phonNums[1].addEventListener('focusout', function(){
-            console.log(phonNums[1].value);
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', '/okayFormNumbers', true);
-            xhr.addEventListener('readystatechange', function(){
-                if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
-                    var item = xhr.responseText;
-                    console.log(item);
-                    switch (item) {
-                        case "Please enter a phone number so I can get back to you!":
-                            //Invalid fields entered for message address
-                            phoneNumsErr.textContent = item;
-                            goodFields[6] = false;
-                            document.querySelector('#my-form-button').disabled = true;
-                            break;
-                        case (item.length <= 0):
-                            //Length of subject is 0 and somehow missed our go code..
-                            phoneNumsErr.textContent = "Please enter a phone number so I can get back to you!";
-                            goodFields[6] = false;
-                            document.querySelector('#my-form-button').disabled = true;
-                            break;
-                        default:
-                            //Good email field
-                            phoneNumsErr.textContent = '';
-                            goodFields[6] = true;
-                            if (canSubmit() == true) {
-                                document.querySelector('#my-form-button').disabled = false;
-                            }
-                            break;
-                    }
-                }
-            });
-            xhr.send(phonNums[1].value);
+        phoneNums[1].addEventListener('focusout', function(){
+            console.log(phoneNums[1].value);
+            switch (phoneNums[1].value) {
+                case "0":
+                    
+                    break;
+                case "1":
+                    break;
+                case "2":
+                    break;
+                case "3":
+                    break;
+                case "4":
+                    break;
+                case "5":
+                    break;
+                case "6":
+                    break;
+                case "7":
+                    break;
+                case "8":
+                    break;
+                case "9":
+                    break;
+                default:
+                    //This is where we catch our unknown typed in values!
+                    console.log("Invalid phone number input: " + phoneNums[1].value);
+                    phoneNums[1].value = "";
+                    break;
+            }
         });
         //Num 2
-        phonNums[2].addEventListener('focusout', function(){
-            console.log(phonNums[0].value);
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', '/okayFormNumbers', true);
-            xhr.addEventListener('readystatechange', function(){
-                if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
-                    var item = xhr.responseText;
-                    console.log(item);
-                    switch (item) {
-                        case "Please enter a phone number so I can get back to you!":
-                            //Invalid fields entered for message address
-                            phoneNumsErr.textContent = item;
-                            goodFields[7] = false;
-                            document.querySelector('#my-form-button').disabled = true;
-                            break;
-                        case (item.length <= 0):
-                            //Length of subject is 0 and somehow missed our go code..
-                            phoneNumsErr.textContent = "Please enter a phone number so I can get back to you!";
-                            goodFields[7] = false;
-                            document.querySelector('#my-form-button').disabled = true;
-                            break;
-                        default:
-                            //Good email field
-                            phoneNumsErr.textContent = '';
-                            goodFields[7] = true;
-                            if (canSubmit() == true) {
-                                document.querySelector('#my-form-button').disabled = false;
-                            }
-                            break;
-                    }
-                }
-            });
-            xhr.send(phonNums[2].value);
+        phoneNums[2].addEventListener('focusout', function(){
+            console.log(phoneNums[2].value);
+            switch (phoneNums[2].value) {
+                case "0":
+                    
+                    break;
+                case "1":
+                    break;
+                case "2":
+                    break;
+                case "3":
+                    break;
+                case "4":
+                    break;
+                case "5":
+                    break;
+                case "6":
+                    break;
+                case "7":
+                    break;
+                case "8":
+                    break;
+                case "9":
+                    break;
+                default:
+                    //This is where we catch our unknown typed in values!
+                    console.log("Invalid phone number input: " + phoneNums[2].value);
+                    phoneNums[2].value = "";
+                    break;
+            }
         });
         //Num 3
-        phonNums[3].addEventListener('focusout', function(){
-            console.log(phonNums[0].value);
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', '/okayFormNumbers', true);
-            xhr.addEventListener('readystatechange', function(){
-                if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
-                    var item = xhr.responseText;
-                    console.log(item);
-                    switch (item) {
-                        case "Please enter a phone number so I can get back to you!":
-                            //Invalid fields entered for message address
-                            phoneNumsErr.textContent = item;
-                            goodFields[8] = false;
-                            document.querySelector('#my-form-button').disabled = true;
-                            break;
-                        case (item.length <= 0):
-                            //Length of subject is 0 and somehow missed our go code..
-                            phoneNumsErr.textContent = "Please enter a phone number so I can get back to you!";
-                            goodFields[8] = false;
-                            document.querySelector('#my-form-button').disabled = true;
-                            break;
-                        default:
-                            //Good email field
-                            phoneNumsErr.textContent = '';
-                            goodFields[8] = true;
-                            if (canSubmit() == true) {
-                                document.querySelector('#my-form-button').disabled = false;
-                            }
-                            break;
-                    }
-                }
-            });
-            xhr.send(phonNums[3].value);
+        phoneNums[3].addEventListener('focusout', function(){
+            console.log(phoneNums[3].value);
+            switch (phoneNums[3].value) {
+                case "0":
+                    
+                    break;
+                case "1":
+                    break;
+                case "2":
+                    break;
+                case "3":
+                    break;
+                case "4":
+                    break;
+                case "5":
+                    break;
+                case "6":
+                    break;
+                case "7":
+                    break;
+                case "8":
+                    break;
+                case "9":
+                    break;
+                default:
+                    //This is where we catch our unknown typed in values!
+                    console.log("Invalid phone number input: " + phoneNums[3].value);
+                    phoneNums[3].value = "";
+                    break;
+            }
         });
     </script>
 {{end}}
