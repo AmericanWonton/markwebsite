@@ -141,12 +141,24 @@
 .above_fold_div {
     /* Above the fold styling */
     /* height: 100vh; */
-    height: auto;
-    box-sizing: border-box;
+    /* height: auto;
+    box-sizing: border-box; */
     /* Flex-box styling */
 
     /* DEBUG STYLING */
     border: 3px dashed pink;
+}
+
+#mark_showcase_div {
+    /* Above the fold sytling */
+    height: 20vh;
+    background-color: red;
+    /* This is for the background styling */
+   /* background-image: url("../project/static/img/jpg/mark_cover_mono.jpg"); */
+    /* background-image: url("/project/templates/seltzer_debug_pic.jpg"); */
+    /* background-size: 800px; */
+    /* background-size: 100% 100%; */
+    /* background-repeat: no-repeat; */
 }
 
 .rest_of_content_div{

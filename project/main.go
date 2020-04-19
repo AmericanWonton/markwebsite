@@ -29,7 +29,7 @@ var funcMap = template.FuncMap{
 
 func init() {
 	//template1 = template.Must(template.ParseGlob("templates/*"))
-	template1 = template.Must(template.New("").Funcs(funcMap).ParseGlob("templates/*"))
+	template1 = template.Must(template.New("").Funcs(funcMap).ParseGlob("templates/*html"))
 }
 
 /* EXECUTING TEMPLATES BEGINNING */
