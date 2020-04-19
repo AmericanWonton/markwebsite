@@ -81,7 +81,7 @@
                     </p>
                 </div>
                 <div class="inputDiv">
-                    <input type="text" name="firstname" id="inputTextMobileFName"/>
+                    <input type="text" name="firstname" id="inputTextMobileFName" required/>
                     <p class="form-field-err" id="fname-err"></p>
                 </div>
             </div>
@@ -93,7 +93,7 @@
                     </p>
                 </div>
                 <div class="inputDiv">
-                    <input type="text" name="lastname" id="inputTextMobileLName"/>
+                    <input type="text" name="lastname" id="inputTextMobileLName" required/>
                     <p class="form-field-err" id="lname-err"></p>
                 </div>
             </div>
@@ -105,7 +105,7 @@
                     </p>
                 </div>
                 <div class="inputDiv">
-                    <input type="text" name="email" id="inputTextMobileEmail"/>
+                    <input type="text" name="email" id="inputTextMobileEmail" required/>
                     <p class="form-field-err" id="email-err"></p>
                 </div>
             </div>
@@ -117,7 +117,7 @@
                     </p>
                 </div>
                 <div class="inputDiv">
-                    <input type="text" name="Subject" id="inputTextMobileSubject" maxlength="60"/>
+                    <input type="text" name="Subject" id="inputTextMobileSubject" maxlength="60" required/>
                     <p class="form-field-err" id="subject-err"></p>
                 </div>
             </div>
@@ -129,7 +129,7 @@
                     </p>
                 </div>
                 <div class="inputDiv">
-                    <textarea name="message" form="my-form" id="inputTextMobileMessage"></textarea>
+                    <textarea name="message" form="my-form" id="inputTextMobileMessage" required></textarea>
                     <p class="form-field-err" id="message-err"></p>
                 </div>
             </div>
@@ -153,10 +153,10 @@
                     </p>
                 </div>
                 <div class="inputDiv">
-                    <input type="text" name="country_code" id="inputTitlePhoneNum1" maxlength=1/>
-                    <input type="text" name="area_code" id="inputTitlePhoneNum2" maxlength=3/>
-                    <input type="text" name="phonenum_1" id="inputTitlePhoneNum3" maxlength=3/>
-                    <input type="text" name="phonenum_2" id="inputTitlePhoneNum4" maxlength=4/>
+                    <input type="text" name="country_code" id="inputTitlePhoneNum1" maxlength=1 required/>
+                    <input type="text" name="area_code" id="inputTitlePhoneNum2" maxlength=3 required/>
+                    <input type="text" name="phonenum_1" id="inputTitlePhoneNum3" maxlength=3 required/>
+                    <input type="text" name="phonenum_2" id="inputTitlePhoneNum4" maxlength=4 required/>
                     <p class="form-field-err" id="phone-err"></p>
                 </div>
             </div>
@@ -170,10 +170,12 @@
 
 {{define "okay_email_checker"}}
     <script>
+        var form = document.getElementById("contact_mark_form"); //Form variable, needed for clearing it on opening page. 
         //Keep track of when User is allowed to submit.
         var goodFields = [false, false, false, false, false, false, false, false, false] //Variable to keep track of what's good to go
         //Turn off submit button when page loads
         window.addEventListener("DOMContentLoaded", function(){
+            form.reset();
             document.querySelector('#my-form-button').disabled = true;
         });
         //All fields must be clicked on to submit form. Keep track of all of them being clicked!
@@ -370,138 +372,131 @@
         });
         //This is for the Phone Numbers
         //Num 0
-        phoneNums[0].addEventListener('focusout', function(){
+        phoneNums[0].addEventListener('input', function(){
             console.log(phoneNums[0].value);
             var phoneCharacters = phoneNums[0].value.split('');
-            console.log("Length of array is this: " + phoneCharacters.length);
+            var goodPhoneNum = true; //If this remains true, the User can log in.
+            //See if any of the characters do not contain a number. If they don't , goodPhoneNum is false.
             for (i = 0; i < phoneCharacters.length; i++) {
-                
+                if ((phoneCharacters[i] != "0") && (phoneCharacters[i] != "1") && (phoneCharacters[i] != "2") && (phoneCharacters[i] != "3")
+                && (phoneCharacters[i] != "4") && (phoneCharacters[i] != "5") && (phoneCharacters[i] != "6") && (phoneCharacters[i] != "7")
+                && (phoneCharacters[i] != "8") && (phoneCharacters[i] != "9")) {
+                    goodPhoneNum = false;
+                    break;
+                }
             }
-            /*
-            switch (phoneNums[0].value) {
-                case "0":
-                    
-                    break;
-                case "1":
-                    break;
-                case "2":
-                    break;
-                case "3":
-                    break;
-                case "4":
-                    break;
-                case "5":
-                    break;
-                case "6":
-                    break;
-                case "7":
-                    break;
-                case "8":
-                    break;
-                case "9":
-                    break;
-                default:
-                    //This is where we catch our unknown typed in values!
-                    console.log("Invalid phone number input: " + phoneNums[0].value);
-                    phoneNums[0].value = "";
-                    break;
+            //Check to see if the phoneNum is the correct length for this field
+            if (phoneCharacters.length <= 0) {
+                goodPhoneNum = false;
+                goodFields[5] = false;
+                document.querySelector('#my-form-button').disabled = true;
             }
-            */
+            //If goodPhoneNum is false, clear the fields and set the button to NOT CLICKABLE
+            if (goodPhoneNum == true) {
+                console.log("Hey, it worked.");
+                goodFields[5] = true;
+                if (canSubmit() == true) {
+                    document.querySelector('#my-form-button').disabled = false;
+                }
+            } else {
+                goodFields[5] = false;
+                document.querySelector('#my-form-button').disabled = true;
+            }
         });
         //Num 1
-        phoneNums[1].addEventListener('focusout', function(){
+        phoneNums[1].addEventListener('input', function(){
             console.log(phoneNums[1].value);
-            switch (phoneNums[1].value) {
-                case "0":
-                    
+            var phoneCharacters = phoneNums[1].value.split('');
+            var goodPhoneNum = true; //If this remains true, the User can log in.
+            //See if any of the characters do not contain a number. If they don't , goodPhoneNum is false.
+            for (i = 0; i < phoneCharacters.length; i++) {
+                if ((phoneCharacters[i] != "0") && (phoneCharacters[i] != "1") && (phoneCharacters[i] != "2") && (phoneCharacters[i] != "3")
+                && (phoneCharacters[i] != "4") && (phoneCharacters[i] != "5") && (phoneCharacters[i] != "6") && (phoneCharacters[i] != "7")
+                && (phoneCharacters[i] != "8") && (phoneCharacters[i] != "9")) {
+                    goodPhoneNum = false;
                     break;
-                case "1":
-                    break;
-                case "2":
-                    break;
-                case "3":
-                    break;
-                case "4":
-                    break;
-                case "5":
-                    break;
-                case "6":
-                    break;
-                case "7":
-                    break;
-                case "8":
-                    break;
-                case "9":
-                    break;
-                default:
-                    //This is where we catch our unknown typed in values!
-                    console.log("Invalid phone number input: " + phoneNums[1].value);
-                    phoneNums[1].value = "";
-                    break;
+                }
+            }
+            //Check to see if the phoneNum is the correct length for this field
+            if (phoneCharacters.length <= 2) {
+                goodPhoneNum = false;
+                goodFields[6] = false;
+                document.querySelector('#my-form-button').disabled = true;
+            }
+            //If goodPhoneNum is false, clear the fields and set the button to NOT CLICKABLE
+            if (goodPhoneNum == true) {
+                console.log("Hey, it worked.");
+                goodFields[6] = true;
+                if (canSubmit() == true) {
+                    document.querySelector('#my-form-button').disabled = false;
+                }
+            } else {
+                goodFields[6] = false;
+                document.querySelector('#my-form-button').disabled = true;
             }
         });
         //Num 2
-        phoneNums[2].addEventListener('focusout', function(){
+        phoneNums[2].addEventListener('input', function(){
             console.log(phoneNums[2].value);
-            switch (phoneNums[2].value) {
-                case "0":
-                    
+            var phoneCharacters = phoneNums[2].value.split('');
+            var goodPhoneNum = true; //If this remains true, the User can log in.
+            //See if any of the characters do not contain a number. If they don't , goodPhoneNum is false.
+            for (i = 0; i < phoneCharacters.length; i++) {
+                if ((phoneCharacters[i] != "0") && (phoneCharacters[i] != "1") && (phoneCharacters[i] != "2") && (phoneCharacters[i] != "3")
+                && (phoneCharacters[i] != "4") && (phoneCharacters[i] != "5") && (phoneCharacters[i] != "6") && (phoneCharacters[i] != "7")
+                && (phoneCharacters[i] != "8") && (phoneCharacters[i] != "9")) {
+                    goodPhoneNum = false;
                     break;
-                case "1":
-                    break;
-                case "2":
-                    break;
-                case "3":
-                    break;
-                case "4":
-                    break;
-                case "5":
-                    break;
-                case "6":
-                    break;
-                case "7":
-                    break;
-                case "8":
-                    break;
-                case "9":
-                    break;
-                default:
-                    //This is where we catch our unknown typed in values!
-                    console.log("Invalid phone number input: " + phoneNums[2].value);
-                    phoneNums[2].value = "";
-                    break;
+                }
+            }
+            //Check to see if the phoneNum is the correct length for this field
+            if (phoneCharacters.length <= 2) {
+                goodPhoneNum = false;
+                goodFields[7] = false;
+                document.querySelector('#my-form-button').disabled = true;
+            }
+            //If goodPhoneNum is false, clear the fields and set the button to NOT CLICKABLE
+            if (goodPhoneNum == true) {
+                console.log("Hey, it worked.");
+                goodFields[7] = true;
+                if (canSubmit() == true) {
+                    document.querySelector('#my-form-button').disabled = false;
+                }
+            } else {
+                goodFields[7] = false;
+                document.querySelector('#my-form-button').disabled = true;
             }
         });
         //Num 3
-        phoneNums[3].addEventListener('focusout', function(){
+        phoneNums[3].addEventListener('input', function(){
             console.log(phoneNums[3].value);
-            switch (phoneNums[3].value) {
-                case "0":
-                    
+            var phoneCharacters = phoneNums[3].value.split('');
+            var goodPhoneNum = true; //If this remains true, the User can log in.
+            //See if any of the characters do not contain a number. If they don't , goodPhoneNum is false.
+            for (i = 0; i < phoneCharacters.length; i++) {
+                if ((phoneCharacters[i] != "0") && (phoneCharacters[i] != "1") && (phoneCharacters[i] != "2") && (phoneCharacters[i] != "3")
+                && (phoneCharacters[i] != "4") && (phoneCharacters[i] != "5") && (phoneCharacters[i] != "6") && (phoneCharacters[i] != "7")
+                && (phoneCharacters[i] != "8") && (phoneCharacters[i] != "9")) {
+                    goodPhoneNum = false;
                     break;
-                case "1":
-                    break;
-                case "2":
-                    break;
-                case "3":
-                    break;
-                case "4":
-                    break;
-                case "5":
-                    break;
-                case "6":
-                    break;
-                case "7":
-                    break;
-                case "8":
-                    break;
-                case "9":
-                    break;
-                default:
-                    //This is where we catch our unknown typed in values!
-                    console.log("Invalid phone number input: " + phoneNums[3].value);
-                    phoneNums[3].value = "";
-                    break;
+                }
+            }
+            //Check to see if the phoneNum is the correct length for this field
+            if (phoneCharacters.length <= 3) {
+                goodPhoneNum = false;
+                goodFields[8] = false;
+                document.querySelector('#my-form-button').disabled = true;
+            }
+            //If goodPhoneNum is false, clear the fields and set the button to NOT CLICKABLE
+            if (goodPhoneNum == true) {
+                goodFields[8] = true;
+                if (canSubmit() == true) {
+                    document.querySelector('#my-form-button').disabled = false;
+                }
+            } else {
+                console.log("Wait you typed something broken.");
+                goodFields[8] = false;
+                document.querySelector('#my-form-button').disabled = true;
             }
         });
     </script>
@@ -515,6 +510,59 @@
             // get the form elements defined in your form HTML above
             
             var form = document.getElementById("contact_mark_form");
+            var button = document.getElementById("my-form-button");
+            //var status = document.getElementById("my-form-status");
+
+            // Success and Error functions for after the form is submitted
+            
+            function success() {
+                form.reset();
+                //button.style = "display: none ";
+                //status.innerHTML = "Thanks!";
+                alert("Thanks for reaching out! You can hear from me soon!");
+            }
+
+            function error() {
+                alert("Error sending email form");
+                form.reset();
+            }
+
+            // handle the form submission event
+
+            form.addEventListener("submit", function(ev) {
+                ev.preventDefault();
+                var data = new FormData(form);
+                ajax(form.method, form.action, data, success, error);
+            });
+        });
+        
+        // helper function for sending an AJAX request
+
+        function ajax(method, url, data, success, error) {
+            var xhr = new XMLHttpRequest();
+            xhr.open(method, url);
+            xhr.setRequestHeader("Accept", "application/json");
+            xhr.onreadystatechange = function() {
+            if (xhr.readyState !== XMLHttpRequest.DONE) return;
+            if (xhr.status === 200) {
+                success(xhr.response, xhr.responseType);
+            } else {
+                error(xhr.status, xhr.response, xhr.responseType);
+            }
+            };
+            xhr.send(data);
+        }
+    </script>
+{{end}}
+
+{{/* CONTACT FORM HELPER AJAX FOR THE TEST FORM */}}
+{{define "helper_email_ajax_TEST"}}
+    <script>
+        window.addEventListener("DOMContentLoaded", function() {
+
+            // get the form elements defined in your form HTML above
+            
+            var form = document.getElementById("test_form");
             var button = document.getElementById("my-form-button");
             //var status = document.getElementById("my-form-status");
 
