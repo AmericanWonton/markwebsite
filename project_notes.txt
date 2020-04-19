@@ -18,7 +18,9 @@ So I got a majority of Mark's photos but IDK if he's on Twitter...so it looks li
 4. Maybe create a database in Mongo to keep track of who created a date for Mark, etc.?
 
 For some reason I have to run golang again for the correct formatting a couple times...like I'll come back after running it 
-and it's suddenly...fixed? IDK... 
+and it's suddenly...fixed? IDK... YOU GOTTA DO A HARD REFRESH OR CLEAR THE BROWSER CACHE TO GET IT TO WORK: 
+https://wordpress.org/support/topic/css-changes-not-showing-even-after-all-caches-cleared/ 
+Or press CTRL + F5
 
 Weird...my gohtml isn't syncing with my css files... is it something wrong with the templates?
 Okay, it's a two part issue: One, I had to fix the stylesheet path after moving my CSS folder around.

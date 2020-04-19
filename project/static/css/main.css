@@ -138,21 +138,46 @@
 /* END OF HEADER AREA */
 
 /* THIS BEGINS MOST CONTENTS WITHIN THE BODY */
+/* NOTE: ABOVE THE FOLD STYLING IS NOT DONE IN THE ABOVE FOLD DIV, BUT RATHER, THE SHOWCASE DIV
+THIS IS ONLY FOR HOLDING THE ABOVE THE FOLD DIVS */
 .above_fold_div {
-    /* Above the fold styling */
-    /* height: 100vh; */
-    /* height: auto;
-    box-sizing: border-box; */
     /* Flex-box styling */
-
+    align-content: center;
+    justify-content: center;
     /* DEBUG STYLING */
     border: 3px dashed pink;
 }
 
 .mark_showcase_div {
-    background-color: green;
-    height: 25vh;
+    /* Above the fold styling */
+    box-sizing: border-box;
+    height: 60vh;
+    /* Flex-box styling */
+    display: flex;
+    flex-flow: wrap;
+    align-content: center;
+    justify-content: center;
+    /* This is for the background styling */
+    background-image: url('../img/png/mark_cover_faded.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    
+}
+
+.markshowcase_text_div {
+    /* Flex-box styling */
+    display: flex;
+    flex-flow: wrap;
+    align-content: center;
+    justify-content: center;
     width: 100%;
+    /* DEBUG STYLING */
+    
+}
+
+.mark_showcase_text {
+    color: rgba(252, 248, 22, 0.9);
+    font-size: 4rem;
 }
 
 .rest_of_content_div{
