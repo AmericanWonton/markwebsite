@@ -149,16 +149,10 @@
     border: 3px dashed pink;
 }
 
-#mark_showcase_div {
-    /* Above the fold sytling */
-    height: 20vh;
-    background-color: red;
-    /* This is for the background styling */
-   /* background-image: url("../project/static/img/jpg/mark_cover_mono.jpg"); */
-    /* background-image: url("/project/templates/seltzer_debug_pic.jpg"); */
-    /* background-size: 800px; */
-    /* background-size: 100% 100%; */
-    /* background-repeat: no-repeat; */
+.mark_showcase_div {
+    background-color: green;
+    height: 25vh;
+    width: 100%;
 }
 
 .rest_of_content_div{
@@ -178,6 +172,7 @@
 
     /* debug styling */
     border: 1px solid salmon;
+    background-color: green;
 }
 
 .content_div_video {
@@ -205,12 +200,11 @@
     /* debug styling */
     border: 2px dashed rgb(211, 207, 153);
 }
-
+/*
 #my-form {
-    /* flexbox styling */
-
-    /* styling */
+    
 }
+*/
 
 .fieldSection {
     /*flexbox styling */
@@ -314,7 +308,8 @@
 }
 
 #my-form-button {
-    
+    /* debug rulesets */
+    color: green;
 }
 
 .inputTextMobileMessage {
@@ -399,7 +394,7 @@
 .contact_box {
     /* Flexbox styling */
     display: flex;
-    flex-wrap: row wrap;
+    flex-wrap: wrap;
     align-content: center;
     justify-content: center;
     width: 50%;

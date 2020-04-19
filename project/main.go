@@ -29,7 +29,7 @@ var funcMap = template.FuncMap{
 
 func init() {
 	//template1 = template.Must(template.ParseGlob("templates/*"))
-	template1 = template.Must(template.New("").Funcs(funcMap).ParseGlob("templates/*html"))
+	template1 = template.Must(template.New("").Funcs(funcMap).ParseGlob("templates/*gohtml"))
 }
 
 /* EXECUTING TEMPLATES BEGINNING */
@@ -44,7 +44,7 @@ func HandleError(w http.ResponseWriter, err error) {
 //index.gohtml
 func indexExecute(w http.ResponseWriter, _ *http.Request) {
 	/*Execute template, handle error */
-	err1 := template1.ExecuteTemplate(w, "index.html", nil)
+	err1 := template1.ExecuteTemplate(w, "index.gohtml", nil)
 	HandleError(w, err1)
 }
 
@@ -84,7 +84,10 @@ func main() {
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 	//http.Handle("/static/jpg", http.StripPrefix("/static/jpg", http.FileServer(http.Dir("static/jpg"))))
 	/* Listen and serve */
-	http.ListenAndServe(":8080", nil)
+	err := http.ListenAndServe(":8080", nil)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 /* Check to see if Form they submitted is kosher */

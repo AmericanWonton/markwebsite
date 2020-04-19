@@ -8,6 +8,8 @@ https://developers.facebook.com/docs/plugins/embedded-video-player/api
 https://developers.facebook.com/docs/plugins/embedded-video-player/
 APIs with Golang: https://tutorialedge.net/golang/creating-restful-api-with-golang/
 
+Here's a cool site to validate your CSS: http://jigsaw.w3.org/css-validator/validator
+
 So I got a majority of Mark's photos but IDK if he's on Twitter...so it looks like just Facebook...
 
 1. Made basic Go Templates...probably should make some basic page structure. 
