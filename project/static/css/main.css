@@ -207,7 +207,9 @@ THIS IS ONLY FOR HOLDING THE ABOVE THE FOLD DIVS */
     align-content: center;
     justify-content: center;
     /* styling */
-    margin: .5em;
+    margin-top: .5em;
+    margin-right: .5em;
+    margin-left: .5em;
     /* debug styling */
 }
 
@@ -393,6 +395,24 @@ THIS IS ONLY FOR HOLDING THE ABOVE THE FOLD DIVS */
     /* Debug colors */
     background-color: orchid;
 }
+
+/* Photo Gallery */
+.gallery_div {
+    margin: 1em;
+}
+
+.gallery_img {
+    transition: 1s;
+    padding: 1em;
+    width: 10vw;
+}
+
+.gallery_img:hover {
+    /*
+    filter: grayscale(100%);
+    */
+    transform: scale(1.1);
+}
 /* THIS ENDS MOST OF THE CONTENTS IN THE BODY */
 
 /* BEGINNING OF FOOTER AREA */
@@ -439,6 +459,8 @@ THIS IS ONLY FOR HOLDING THE ABOVE THE FOLD DIVS */
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    justify-content: center;
+    align-content: center;
     height: auto;
     padding-top: 0%;
     padding-bottom: 0%;
@@ -453,7 +475,7 @@ THIS IS ONLY FOR HOLDING THE ABOVE THE FOLD DIVS */
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
-    width: 50%;
+    width: 48%;
     height: auto;
     /* styling */
 
@@ -468,6 +490,7 @@ THIS IS ONLY FOR HOLDING THE ABOVE THE FOLD DIVS */
     align-content: center;
     justify-content: center;
     width: 100%;
+    height: auto;
     /* styling
     
     margin: .5em;
@@ -481,8 +504,8 @@ THIS IS ONLY FOR HOLDING THE ABOVE THE FOLD DIVS */
 
 .image_contact {
     /* styling */
-    width: 7vw;
-    height: 7vh;
+    width: 6vw;
+    height: 6vh;
 }
 
 .text_contact_holder {
@@ -492,6 +515,7 @@ THIS IS ONLY FOR HOLDING THE ABOVE THE FOLD DIVS */
     align-content: center;
     justify-content: center;
     width: 100%;
+    height: auto;
     /* styling 
     
     margin: .5em;
@@ -500,12 +524,12 @@ THIS IS ONLY FOR HOLDING THE ABOVE THE FOLD DIVS */
     */
     
     /* debug styling */
-    
+    border: 1px solid purple;
 }
 
 .text_contact {
     /* styling */
-    font-size: 1.2rem;
+    font-size: .8rem;
     text-align: center;
 }
 

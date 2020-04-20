@@ -57,6 +57,15 @@ func bookdjExecute(w http.ResponseWriter, req *http.Request) {
 
 }
 
+//gallery.gohtml
+func galleryExecute(w http.ResponseWriter, req *http.Request) {
+	fmt.Printf("We are in galleryExecute\n")
+	/*Execute template, handle error */
+	err1 := template1.ExecuteTemplate(w, "gallery.gohtml", nil)
+	HandleError(w, err1)
+
+}
+
 func formSubmit(data formdata) {
 	//Execute Template with our data
 	fmt.Println("Printing data to our webpage.")
@@ -74,6 +83,7 @@ func main() {
 	/* ----------------- TEMPLATE EXECUTION BEGINNING -------------- */
 	http.HandleFunc("/", indexExecute)
 	http.HandleFunc("/bookdjmark.gohtml", bookdjExecute)
+	http.HandleFunc("/gallery.gohtml", galleryExecute)
 	http.HandleFunc("/okayFormNames", okayFormNames)
 	http.HandleFunc("/okayFormEmail", okayFormEmail)
 	http.HandleFunc("/okayFormBigMessage", okayFormBigMessage)
