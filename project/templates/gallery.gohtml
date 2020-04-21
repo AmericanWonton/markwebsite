@@ -12,6 +12,7 @@
         {{/* Here are our Media Query and stylesheets */}}
         {{template "media-queries"}}
         {{/* Here is our Javascript or additional code needed */}}
+        {{template "javascript"}}
     </head>
     <body>
         {{/* Here is our header */}}
@@ -19,15 +20,48 @@
 
         {{/* Here is our main content */}}
         <div class="body_div">
+            {{/* Photo Gallery Title */}}
+            <div class="content_title_div">
+                <div class="content_title_text">
+                    Gallery
+                </div>
+            </div>
+            <div class="rest_of_content_div">
+                <div class="content_div_txt">
+                    <p class="content_text">
+                        The fun times keep on rolling! Behind the booth or on the dance floor,
+                        I guarantee fun for the whole family!
+                    </p>
+                </div>
+            </div>
             <div class="gallery_div">
-                <a href="static/img/jpg/mark-polls.jpg">
-                    <img src="static/img/jpg/mark-polls.jpg" class="gallery_img">
+                <a href="static/images/jpg/mark_booth_front.jpg"
+                class="gallery_img_clicked" data-lightbox="mygallery" data-title="Mark Polling">
+                    <img src="static/images/jpg/mark_booth_front.jpg" class="gallery_img">
                 </a>
-                <a href="static/img/jpg/mark_booth_front.jpg">
-                    <img src="static/img/jpg/mark_booth_front.jpg" class="gallery_img">
+                <a href="static/images/jpg/mark_booth_side1.jpg" 
+                class="gallery_img_clicked" data-lightbox="mygallery" data-title="Mark DJ Booth">
+                    <img src="static/images/jpg/mark_booth_side1.jpg" class="gallery_img">
                 </a>
-                <a href="static/img/jpg/mark_booth_side3.jpg">
-                    <img src="static/img/jpg/mark_booth_side3.jpg" class="gallery_img">
+                <a href="static/images/jpg/mark-dance-w-liz.jpg"
+                class="gallery_img_clicked" data-lightbox="mygallery" data-title="Mark DJ Booth Side">
+                    <img src="static/images/jpg/mark-dance-w-liz.jpg" class="gallery_img">
+                </a>
+                <a href="static/images/jpg/mark-laughter-coverphoto.jpg"
+                class="gallery_img_clicked" data-lightbox="mygallery" data-title="Mark Polling">
+                    <img src="static/images/jpg/mark-laughter-coverphoto.jpg" class="gallery_img">
+                </a>
+                <a href="static/images/jpg/mark-mac-sideface.jpg" 
+                class="gallery_img_clicked" data-lightbox="mygallery" data-title="Mark DJ Booth">
+                    <img src="static/images/jpg/mark-mac-sideface.jpg" class="gallery_img">
+                </a>
+                <a href="static/images/jpg/mark-polls.jpg"
+                class="gallery_img_clicked" data-lightbox="mygallery" data-title="Mark DJ Booth Side">
+                    <img src="static/images/jpg/mark-polls.jpg" class="gallery_img">
+                </a>
+                <a href="static/images/jpg/mark-thumbs-up.jpg"
+                class="gallery_img_clicked" data-lightbox="mygallery" data-title="Mark DJ Booth Side">
+                    <img src="static/images/jpg/mark-thumbs-up.jpg" class="gallery_img">
                 </a>
             </div>
         </div>

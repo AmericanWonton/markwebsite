@@ -133,6 +133,7 @@
 .headerLinks {
     font-size: 1rem;
     color: yellow;
+    text-align: center;
 }
 
 /* END OF HEADER AREA */
@@ -198,6 +199,24 @@ THIS IS ONLY FOR HOLDING THE ABOVE THE FOLD DIVS */
 
     /* debug styling */
     
+}
+
+.content_title_div {
+    /* Flexbox Styling */
+    display: flex;
+    flex-flow: wrap;
+    align-content: center;
+    justify-content: center;
+    /* styling */
+    margin-top: 1em;
+    /* Debug Styling */
+    border: 1px solid blue;
+}
+
+.content_title_text {
+    font-family: 'Odibee Sans', sans-serif;
+    font-size: 5rem;
+    align-self: center;
 }
 
 .content_div_txt {
@@ -398,19 +417,25 @@ THIS IS ONLY FOR HOLDING THE ABOVE THE FOLD DIVS */
 
 /* Photo Gallery */
 .gallery_div {
-    margin: 1em;
+    /* Flexbox Styling */
+    
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    margin: .5em;
 }
 
 .gallery_img {
     transition: 1s;
-    padding: 1em;
-    width: 10vw;
+    padding: .2em;
+    width: 40vw;
+}
+
+.gallery_img_clicked {
+    width: 30vw;
 }
 
 .gallery_img:hover {
-    /*
-    filter: grayscale(100%);
-    */
     transform: scale(1.1);
 }
 /* THIS ENDS MOST OF THE CONTENTS IN THE BODY */
