@@ -12,40 +12,40 @@
     flex-flow: wrap;
     width: 100%;
     /* styling */
-
+    background-color: rgb(238, 180, 104);
+    border: 1px solid black;
     /* debug styling */
-    background-color: pink;
-    border: 3px solid gold;
 }
 
 .drop-down-link-divs {
     /* Flexbox styling */
     display: flex;
     flex-flow: wrap;
-    /* align-content: flex-end; */
+    align-content: flex-end;
+    justify-content: flex-end;
     width: 100%;
     /* styling */
-
+    background-color: rgb(155, 104, 238);
+    border: 1px solid black;
     /* debug styling */
-    background-color: gold;
-    border: 2px dashed green;
+    
 }
 
 .nothing_box {
     width: 45%;
+    /* styling */
+    background-color: rgba(136, 93, 206, 0.795);
     /* debug styling */
-    background-color: hotpink;
-    border: 2px solid peru;
+    
 }
 
 .link_box {
     /* Flexbox styling */
     width: 20%;
     /* styling */
-
+    background-color: rgb(238, 180, 104);
+    border: 1px solid black;
     /* debug styling */
-    background-color: tan;
-    border: 2px dashed rgb(120, 6, 131);
 }
 
 .about_box {
@@ -56,9 +56,9 @@
     justify-content: center;
     width: 15%;
     /* styling */
-
+    background-color: rgb(238, 180, 104);
+    border: 2px solid black;
     /* debug styling */
-    border: 2px solid green;
 }
 
 .contact_me_box {
@@ -69,10 +69,10 @@
     justify-content: center;
     width: 15%;
     /* styling */
-
+    background-color: rgb(238, 180, 104);
+    border: 1px solid black;
     /* debug styling */
-    background-color: grey;
-    border: 2px solid rgb(163, 221, 163);
+    
 }
 
 /* Dropdown work */
@@ -88,6 +88,9 @@
     font-family: 'Bebas Neue', cursive, sans-serif;
     width: 100%;
     /* color: white; */
+    /* styling */
+    background-color: rgb(238, 180, 104);
+    border: 1px solid black;
     font-size: 1rem;
 }
 
@@ -132,7 +135,8 @@
 /* Header Links */
 .headerLinks {
     font-size: 1rem;
-    color: yellow;
+    color: black;
+    text-align: center;
 }
 
 /* END OF HEADER AREA */
@@ -145,7 +149,10 @@ THIS IS ONLY FOR HOLDING THE ABOVE THE FOLD DIVS */
     align-content: center;
     justify-content: center;
     /* DEBUG STYLING */
-    border: 3px dashed pink;
+}
+
+.body_div {
+    background-color: rgba(124, 104, 156, 0.795);
 }
 
 .mark_showcase_div {
@@ -158,7 +165,7 @@ THIS IS ONLY FOR HOLDING THE ABOVE THE FOLD DIVS */
     align-content: center;
     justify-content: center;
     /* This is for the background styling */
-    background-image: url('../img/png/mark_cover_faded.png');
+    background-image: url('../images/png/mark_cover_faded.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     
@@ -198,6 +205,24 @@ THIS IS ONLY FOR HOLDING THE ABOVE THE FOLD DIVS */
 
     /* debug styling */
     
+}
+
+.content_title_div {
+    /* Flexbox Styling */
+    display: flex;
+    flex-flow: wrap;
+    align-content: center;
+    justify-content: center;
+    /* styling */
+    margin-top: 1em;
+    /* Debug Styling */
+    border: 1px solid blue;
+}
+
+.content_title_text {
+    font-family: 'Odibee Sans', sans-serif;
+    font-size: 5rem;
+    align-self: center;
 }
 
 .content_div_txt {
@@ -398,19 +423,25 @@ THIS IS ONLY FOR HOLDING THE ABOVE THE FOLD DIVS */
 
 /* Photo Gallery */
 .gallery_div {
-    margin: 1em;
+    /* Flexbox Styling */
+    
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    margin: .5em;
 }
 
 .gallery_img {
     transition: 1s;
-    padding: 1em;
-    width: 10vw;
+    padding: .2em;
+    width: 40vw;
+}
+
+.gallery_img_clicked {
+    width: 30vw;
 }
 
 .gallery_img:hover {
-    /*
-    filter: grayscale(100%);
-    */
     transform: scale(1.1);
 }
 /* THIS ENDS MOST OF THE CONTENTS IN THE BODY */

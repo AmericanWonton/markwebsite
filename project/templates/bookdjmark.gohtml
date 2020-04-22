@@ -23,23 +23,30 @@
        <div class="body_div">
             {{/* Here is our above the fold styling, mostly containing the form */}}
             <div class="above_fold_div">
-                {{/* Contact mark form */}}
-
+                {{/* Title for Contact Form */}}
+                <div class="content_title_div">
+                    <div class="content_title_text">
+                        Contact Me
+                    </div>
+                </div>
+                <div class="rest_of_content_div">
+                    <div class="content_div_txt">
+                        <p class="content_text">
+                            Had a good time? Want to book me for your next event? Reach out to DJ Mark!
+                        </p>
+                    </div>
+                </div>
                 {{.}}
-
+                {{/* Contact mark form */}}
                 {{template "contact_mark_form"}}
 
-                {{template "test_form"}}
-
-                {{template "helper_email_ajax_TEST"}}
+                {{/* here is our field checker ajax for the above form */}}
+                {{template "okay_email_checker"}}
+                {{/* Here is our ajax to compile the form into an email when submit button is clicked */}}
+                {{template "helper_email_ajax"}}
 
             </div>
        </div>
-
-       {{/* here is our field checker ajax for the above form */}}
-       {{template "okay_email_checker"}}
-       {{/* Here is our ajax to compile the form into an email when submit button is clicked */}}
-       {{template "helper_email_ajax"}}
 
        {{/* Here is our footer */}}
        {{template "footer_div"}}
