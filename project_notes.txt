@@ -31,21 +31,12 @@ To close all code sections in VS Code, press CTRL + K + 0
 or Command + k + 0 in Mac
 
 
-/* **** I had to copy and paste the code to get our stuff published on a Google site... **/
-/* ------------- SERVING FILES BEGINNING ---------------------- */
-	/* Handles all the files in the main.go directory, (everything under project) */
-	//http.Handle("/", http.FileServer(http.Dir(".")))
-	http.Handle("/", http.FileServer(http.Dir(".")))
-	/* Defining a port for Google Cloud environment, (defaults to port 8080 for testing) */
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8080"
-		log.Printf("Defaulting to port %s ", port)
-	}
-	/* logs a fatal error if no port is identified to serve these files */
-	log.Printf("listenting on port %s", port)
-	if err := http.ListenAndServe(":"+port, nil); err != nil {
-		log.Fatal(err)
-	}
-
-	/* ------------- SERVING FILES ENDING ---------------------- */
+Here is all of the Resources for getting Mark's site Online on GCloud
+domain is djmark.net
+gcloud app browse to look at it
+Project Name: mark-website-275023
+Config-Name: configname2
+Target URL: https://mark-website-275023.uc.r.appspot.com
+To browse all this, type in gcloud app browse
+I might need to do this guy's word press example:
+https://www.youtube.com/watch?v=5YkkqjwRqN4

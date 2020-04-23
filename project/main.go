@@ -36,6 +36,7 @@ func init() {
 // Handle Errors
 func HandleError(w http.ResponseWriter, err error) {
 	if err != nil {
+		fmt.Println("We had an error handling a path.")
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		log.Fatalln(err)
 	}
@@ -63,7 +64,6 @@ func galleryExecute(w http.ResponseWriter, req *http.Request) {
 	/*Execute template, handle error */
 	err1 := template1.ExecuteTemplate(w, "gallery.gohtml", nil)
 	HandleError(w, err1)
-
 }
 
 func formSubmit(data formdata) {
@@ -80,6 +80,13 @@ func formSubmit(data formdata) {
 /* TEMPLATE DEFINITION ENDING */
 
 func main() {
+	/* Used for handling services on this server */
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+		log.Printf("Defaulting to port %s ", port)
+	}
+	log.Printf("listenting on port %s", port)
 	/* ----------------- TEMPLATE EXECUTION BEGINNING -------------- */
 	http.HandleFunc("/", indexExecute)
 	http.HandleFunc("/bookdjmark.gohtml", bookdjExecute)
@@ -94,8 +101,7 @@ func main() {
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 	//http.Handle("/static/jpg", http.StripPrefix("/static/jpg", http.FileServer(http.Dir("static/jpg"))))
 	/* Listen and serve */
-	err := http.ListenAndServe(":8080", nil)
-	if err != nil {
+	if err := http.ListenAndServe(":"+port, nil); err != nil {
 		log.Fatal(err)
 	}
 }
