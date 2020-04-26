@@ -40,3 +40,23 @@ Target URL: https://mark-website-275023.uc.r.appspot.com
 To browse all this, type in gcloud app browse
 I might need to do this guy's word press example:
 https://www.youtube.com/watch?v=5YkkqjwRqN4
+Not really, it's not really pertinent, it's word press...let's just link this to our DNS.
+Start by opening this link: https://cloud.google.com/dns/docs/quickstart
+
+This setup is getting a little wonky...maybe try doing this on an Amazon server or learn how to 
+point this project to a Google cloud instance with a mixture of that stuff Todd taught us for AWS?
+Remember, select "windows" instructions for all that is below!
+Generating an SSH key for our instance: https://cloud.google.com/compute/docs/instances/adding-removing-ssh-keys
+Pt. 2: https://cloud.google.com/compute/docs/instances/adding-removing-ssh-keys#createsshkeys
+Adding the key to Google Cloud: https://docs.bitnami.com/google/faq/get-started/connect-ssh/
+Connecting to Google cloud with 3rd party tools: https://cloud.google.com/compute/docs/instances/connecting-advanced#thirdpartytools
+This MIGHT help: https://www.youtube.com/watch?v=fmh94mNQHQc can't figure out how to do the stuff in comments...
+keycomment in putty is ACTUALLY the username you usse to connect!
+second putty user is username: joek2 password: 1Gorlokfan
+username for key = jbkel passphrase=iamcool
+ESCDA key files: key comment: ecdsa-key-20200425 passphrase: spaghetti
+
+ssh -i D:/Go_Workspace/src/mark_dj_website/extraneous_files/keyfiles/mark-private-keyv2.ppk jbkel@34.69.35.146
+
+Above dosen't work...I dunno, maybe I can use git to get the stuff up there? 
+OR POSSIBLY DO THIS: https://cloud.google.com/compute/docs/instances/transfer-files
